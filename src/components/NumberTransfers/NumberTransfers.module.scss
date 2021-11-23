@@ -1,0 +1,85 @@
+.block {
+    width: 232px;
+    height: 252px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-right: 35px;
+}
+
+ul {
+    width: 232px;
+}
+
+.title {
+    font-size: 12px;
+    padding: 20px 20px 10px 20px;
+    font-family: 'OpenSansSemibold';
+    color: #4A4A4A;
+}
+
+li {
+    font-family: 'OpenSansRegular';
+    height: 40px;
+    line-height: 3;
+    list-style: none;
+    cursor: pointer;
+    color: #4A4A4A;
+}
+
+li:hover {
+    background-color: #F1FCFF;
+}
+
+
+
+input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+label {
+    padding-left: 20px;
+}
+
+input+label {
+    display: flex;
+    align-items: center;
+    user-select: none;
+    font-size: 13px;
+    
+}
+
+input+label::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #9ABBCE;
+    border-radius: 2px;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+    
+}
+
+input:checked+label::before {
+    border-color: #2196F3;
+    background-image: url('./Shape.svg');
+    
+}
+
+@media (max-width: 780px) {
+    .block {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+}
+    
+    
+

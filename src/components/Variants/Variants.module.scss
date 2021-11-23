@@ -1,0 +1,46 @@
+
+
+.block {
+    
+    display: flex;
+    width: 500px;
+    height: 50px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #DFE5EC;
+}
+
+button {
+     font-family: 'OpenSansSemibold';
+    width: 250px;
+    background-color: #FFFFFF;
+    outline: none;
+    border: none;
+    color: #4A4A4A;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2196F3;
+    color: #FFFFFF;
+}
+
+.cheap {
+    border-right: 1px solid #DFE5EC;
+    border-radius: 5px 0 0 5px;
+    width: 50%;
+    
+}
+
+.fast {
+    border-radius: 0 5px 5px 0;
+} 
+
+
+@media (max-width: 780px) {
+    .block {
+        width: 100%;
+    }
+}
