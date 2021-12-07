@@ -8,7 +8,6 @@ import Ticket from '../Ticket/Ticket';
 
 const ChangeVariants = () => {
   const cheap = useSelector((state) => state.cheap);
-
   const fast = useSelector((state) => state.fast);
   const dispatch = useDispatch();
   let buttonClassCheap = '';
