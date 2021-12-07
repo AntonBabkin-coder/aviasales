@@ -49,11 +49,11 @@ const TicketCard = () => {
     filters = [...filters, ...threeTransfers];
   }
 
-  if (cheap === true) {
+  if (cheap && !fast) {
     tickets.sort((one, last) => one.price - last.price);
   }
 
-  if (fast === true) {
+  if (fast && !cheap) {
     tickets.sort((one, last) => one.segments[0].duration - last.segments[0].duration);
   }
 
