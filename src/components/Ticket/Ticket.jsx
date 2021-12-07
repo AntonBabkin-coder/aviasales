@@ -50,11 +50,11 @@ const TicketCard = () => {
   }
 
   if (cheap && !fast) {
-    tickets.sort((one, last) => one.price - last.price);
+    return tickets.sort((one, last) => one.price - last.price);
   }
 
   if (fast && !cheap) {
-    tickets.sort((one, last) => one.segments[0].duration - last.segments[0].duration);
+    return tickets.sort((one, last) => one.segments[0].duration - last.segments[0].duration);
   }
 
   const Spiner = () => (
