@@ -35,14 +35,17 @@
 
 body {
   width: 100vw;
-  height: 100%;
-  background-color: #F3F7FA;
+  min-height: 100%;
+  background-color: #F1FCFF;
+  // background-color: red;
   
   
 }
 
 .App {
-  // position: relative;
+  background-color: #F1FCFF;
+  min-height: 100vh;
+  height: auto;
   padding: 60px 20px 20px 20px;
 }
 

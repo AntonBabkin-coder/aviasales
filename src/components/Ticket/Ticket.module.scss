@@ -1,9 +1,18 @@
+.example {
+    margin: 20px 0;
+    margin-bottom: 20px;
+    padding: 30px 50px;
+    text-align: center;
+    border-radius: 4px;
+  }
+
 .block {
     width: 500px;
     height: 185px;
     background-color: #FFFFFF;
     border-radius: 5px;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
 .header {
@@ -27,10 +36,23 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 38px 0 20px;
+    padding: 0 20px 0 20px;
     color: #4A4A4A;
     font-size: 14px;
 }
+
+.direction, .way, .time__way, .time__direction {
+    width: 85px;
+}
+
+
+
+.transfer, .city__transfer {
+    width: 100px;
+}
+
+
+
 
 .flight {
     margin-bottom: 10px;
@@ -45,7 +67,7 @@
 }
 
 .time__way {
-    padding-right: 15px;
+    //  margin-right: 98px;
 }
 
 @media (max-width: 780px) {

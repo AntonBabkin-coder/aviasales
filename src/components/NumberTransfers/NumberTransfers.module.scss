@@ -9,6 +9,7 @@
 
 ul {
     width: 232px;
+    
 }
 
 .title {
@@ -23,14 +24,14 @@ li {
     height: 40px;
     line-height: 3;
     list-style: none;
-    cursor: pointer;
+    
     color: #4A4A4A;
 }
 
 li:hover {
     background-color: #F1FCFF;
+   
 }
-
 
 
 input {
@@ -41,6 +42,7 @@ input {
 
 label {
     padding-left: 20px;
+    cursor: pointer;
 }
 
 input+label {

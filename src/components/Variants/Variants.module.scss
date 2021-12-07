@@ -34,8 +34,18 @@ button:hover {
     
 }
 
+// .cheap:focus {
+//     background-color: #2196F3;
+// }
+
+.default {
+    background-color: #2196F3;
+    color: white;
+}
+
 .fast {
     border-radius: 0 5px 5px 0;
+    width: 50%;
 } 
 
 
