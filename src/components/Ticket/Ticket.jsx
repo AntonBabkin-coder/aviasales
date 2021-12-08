@@ -7,16 +7,20 @@ import 'antd/dist/antd.css';
 import classes from './Ticket.module.scss';
 
 const TicketCard = () => {
-  const tickets = useSelector((state) => state.tickets);
-  const load = useSelector((state) => state.loading);
-  const error = useSelector((state) => state.error);
-  const fast = useSelector((state) => state.fast);
-  const cheap = useSelector((state) => state.cheap);
-  const check1 = useSelector((state) => state.check1);
-  const check2 = useSelector((state) => state.check2);
-  const check3 = useSelector((state) => state.check3);
-  const check4 = useSelector((state) => state.check4);
-  const check5 = useSelector((state) => state.check5);
+  // const tickets = useSelector((state) => state.tickets);
+  // const loading = useSelector((state) => state.loading);
+  // const error = useSelector((state) => state.error);
+  // const fast = useSelector((state) => state.fast);
+  // const cheap = useSelector((state) => state.cheap);
+  // const check1 = useSelector((state) => state.check1);
+  // const check2 = useSelector((state) => state.check2);
+  // const check3 = useSelector((state) => state.check3);
+  // const check4 = useSelector((state) => state.check4);
+  // const check5 = useSelector((state) => state.check5);
+
+  const { tickets, loading, error, fast, cheap, check1, check2, check3, check4, check5 } = useSelector(
+    (state) => state
+  );
 
   let filters = [];
 
@@ -63,13 +67,13 @@ const TicketCard = () => {
     </div>
   );
 
-  if (load && !error) {
+  if (loading && !error) {
     return <Spiner />;
   }
 
   const ErrorIndicator = () => <Alert message="ОШИБКА СЕРВЕРА" description="ОБНОВИТЕ СТРАНИЦУ" type="error" showIcon />;
 
-  if (error === true && !load) {
+  if (error === true && !loading) {
     return <ErrorIndicator />;
   }
 

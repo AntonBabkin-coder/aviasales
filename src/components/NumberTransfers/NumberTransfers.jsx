@@ -4,17 +4,11 @@ import { put1, put2, put3, put4, put5, all } from '../../actions';
 import classes from './NumberTransfers.module.scss';
 
 const NumberTransfers = () => {
-  const check1 = useSelector((state) => state.check1);
-  const check2 = useSelector((state) => state.check2);
-  const check3 = useSelector((state) => state.check3);
-  const check4 = useSelector((state) => state.check4);
-  const check5 = useSelector((state) => state.check5);
-
-  // const { check1, check2, check3, check4, check5 } = useSelector((state) => state);
+  const { check1, check2, check3, check4, check5 } = useSelector((state) => state);
 
   const dispatch = useDispatch();
 
-  if (check2 && check3 && check4 && check5) {
+  if (!check1 && check2 && check3 && check4 && check5) {
     dispatch(all());
   }
 
