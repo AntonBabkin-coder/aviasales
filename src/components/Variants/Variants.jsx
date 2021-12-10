@@ -1,12 +1,11 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { buttonCheap, buttonFast } from '../../actions';
 
 import classes from './Variants.module.scss';
-import Ticket from '../Ticket/Ticket';
+import { TicketCard } from '../Ticket/Ticket';
 
-const ChangeVariants = () => {
+export const ChangeVariants = React.memo(() => {
   const cheap = useSelector((state) => state.cheap);
   const fast = useSelector((state) => state.fast);
   const dispatch = useDispatch();
@@ -37,9 +36,7 @@ const ChangeVariants = () => {
           САМЫЙ БЫСТРЫЙ
         </button>
       </div>
-      <Ticket />
+      <TicketCard />
     </div>
   );
-};
-
-export default ChangeVariants;
+});

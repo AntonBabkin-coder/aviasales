@@ -1,26 +1,19 @@
 import React, { useEffect } from 'react';
 import './App.scss';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Img from './img/Logo.svg';
-import Variants from './components/Variants/Variants';
-import CheckboxBlock from './components/NumberTransfers/NumberTransfers';
-import { all, loading, getId } from './actions';
+import { ChangeVariants } from './components/Variants/Variants';
+import { NumberTransfers } from './components/NumberTransfers/NumberTransfers';
+import { allChecked, loadingIndicator, getIdSession } from './actions';
 
-const App = () => {
+export const App = React.memo(() => {
   const dispatch = useDispatch();
 
-  const stopTicket = useSelector((state) => state.stop);
-
-  console.log(stopTicket);
-
-    /* eslint-disable */
   useEffect(() => {
-    dispatch(getId());
-    // dispatch(buttonCheap());
-    dispatch(all());
-    dispatch(loading());
-  }, []);
-  /* eslint-enable */
+    dispatch(getIdSession());
+    dispatch(allChecked());
+    dispatch(loadingIndicator());
+  }, [dispatch]);
 
   return (
     <div className="App">
@@ -28,11 +21,9 @@ const App = () => {
         <img src={Img} alt="plane" />
       </div>
       <div className="main">
-        <CheckboxBlock />
-        <Variants />
+        <NumberTransfers />
+        <ChangeVariants />
       </div>
     </div>
   );
-};
-
-export default App;
+});

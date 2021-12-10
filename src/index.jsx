@@ -4,8 +4,8 @@ import './index.scss';
 import { createStore, applyMiddleware, compose } from 'redux';
 import Thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import reducer from './Reducer';
-import App from './App';
+import reducer from './reducer';
+import { App } from './App';
 
 const composeEnhancers =
   typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__

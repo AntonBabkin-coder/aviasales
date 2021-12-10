@@ -10,6 +10,7 @@ const initialState = {
   loading: true,
   error: false,
   stop: '',
+  all: true,
 };
 
 const reducer = (state = initialState, action) => {
@@ -44,6 +45,7 @@ const reducer = (state = initialState, action) => {
     case 'CHECK1':
       return {
         ...state,
+        // all: action.payload,
         check1: action.payload,
         check2: action.payload,
         check3: action.payload,

@@ -1,15 +1,15 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { put1, put2, put3, put4, put5, all } from '../../actions';
+import { put1, put2, put3, put4, put5, allChecked } from '../../actions';
 import classes from './NumberTransfers.module.scss';
 
-const NumberTransfers = () => {
+export const NumberTransfers = React.memo(() => {
   const { check1, check2, check3, check4, check5 } = useSelector((state) => state);
 
   const dispatch = useDispatch();
 
   if (!check1 && check2 && check3 && check4 && check5) {
-    dispatch(all());
+    dispatch(allChecked());
   }
 
   return (
@@ -76,6 +76,4 @@ const NumberTransfers = () => {
       </div>
     </div>
   );
-};
-
-export default NumberTransfers;
+});

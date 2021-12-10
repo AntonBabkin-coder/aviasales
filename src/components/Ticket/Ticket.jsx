@@ -6,18 +6,7 @@ import { Spin, Alert } from 'antd';
 import 'antd/dist/antd.css';
 import classes from './Ticket.module.scss';
 
-const TicketCard = () => {
-  // const tickets = useSelector((state) => state.tickets);
-  // const loading = useSelector((state) => state.loading);
-  // const error = useSelector((state) => state.error);
-  // const fast = useSelector((state) => state.fast);
-  // const cheap = useSelector((state) => state.cheap);
-  // const check1 = useSelector((state) => state.check1);
-  // const check2 = useSelector((state) => state.check2);
-  // const check3 = useSelector((state) => state.check3);
-  // const check4 = useSelector((state) => state.check4);
-  // const check5 = useSelector((state) => state.check5);
-
+export const TicketCard = React.memo(() => {
   const { tickets, loading, error, fast, cheap, check1, check2, check3, check4, check5 } = useSelector(
     (state) => state
   );
@@ -27,6 +16,8 @@ const TicketCard = () => {
   if (!check1 && !check2 && !check3 && !check4 && !check5) {
     return 'Рейсов, подходящих под заданные фильтры, не найдено';
   }
+
+  // if (all === true)
 
   if (check1) {
     const allTransfers = tickets.filter((item) => item);
@@ -135,6 +126,4 @@ const TicketCard = () => {
       </div>
     </div>
   ));
-};
-
-export default TicketCard;
+});
