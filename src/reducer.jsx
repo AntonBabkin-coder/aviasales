@@ -43,7 +43,6 @@ const reducer = (state = initialState, action) => {
     case 'CHECK1':
       return {
         ...state,
-        // check1: state.check1,
         check1: action.payload,
         check2: action.payload,
         check3: action.payload,

@@ -7,7 +7,9 @@ import classes from './Variants.module.scss';
 import { TicketCard } from '../Ticket/Ticket';
 
 export const ChangeVariants = React.memo(() => {
-  const { cheap, fast, error, loading, tickets } = useSelector((state) => state);
+  const { cheap, fast, error, loading, tickets, check1, check2, check3, check4, check5 } = useSelector(
+    (state) => state
+  );
   const dispatch = useDispatch();
 
   const classesCheap = cn(classes.cheap, { [classes.default]: cheap && [classes.default] });
@@ -31,7 +33,7 @@ export const ChangeVariants = React.memo(() => {
         </button>
       </div>
       <TicketCard />
-      {!error && !loading ? <ButtonAdd /> : null}
+      {!error && !loading && (check1 || check2 || check3 || check4 || check5) ? <ButtonAdd /> : null}
     </div>
   );
 });
