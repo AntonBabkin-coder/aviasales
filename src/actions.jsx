@@ -1,15 +1,22 @@
-export const buttonCheap = () => ({ type: 'BUTTON__CHEAP' });
-export const buttonFast = () => ({ type: 'BUTTON__FAST' });
 export const allChecked = () => ({ type: 'CHECKED' });
-export const put1 = (payload) => ({ type: 'CHECK1', payload });
-export const put2 = (payload) => ({ type: 'CHECK2', payload });
-export const put3 = (payload) => ({ type: 'CHECK3', payload });
-export const put4 = (payload) => ({ type: 'CHECK4', payload });
-export const put5 = (payload) => ({ type: 'CHECK5', payload });
+export const buttonVariants = {
+  BUTTON__CHEAP: 'BUTTON__CHEAP',
+  BUTTON__FAST: 'BUTTON__FAST',
+};
+
+export const check = {
+  CHECK1: 'CHECK1',
+  CHECK2: 'CHECK2',
+  CHECK3: 'CHECK3',
+  CHECK4: 'CHECK4',
+  CHECK5: 'CHECK5',
+};
+
 export const saveTickets = (ticket, stop) => ({ type: 'SAVE_TICKETS', ticket, stop });
 export const loadingIndicator = () => ({ type: 'LOADING' });
 export const ticketStop = () => ({ type: 'STOP' });
 export const error = () => ({ type: 'ERROR' });
+export const addTicket = () => ({ type: 'ADD_TICKET' });
 
 export const getTickets = (request) => (dispatch) => {
   fetch(`${process.env.REACT_APP_API}/tickets?searchId=${request}`)

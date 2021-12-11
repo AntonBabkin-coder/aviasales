@@ -4,14 +4,13 @@ import { useDispatch } from 'react-redux';
 import Img from './img/Logo.svg';
 import { ChangeVariants } from './components/Variants/Variants';
 import { NumberTransfers } from './components/NumberTransfers/NumberTransfers';
-import { allChecked, loadingIndicator, getIdSession } from './actions';
+import { loadingIndicator, getIdSession } from './actions';
 
 export const App = React.memo(() => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getIdSession());
-    dispatch(allChecked());
     dispatch(loadingIndicator());
   }, [dispatch]);
 

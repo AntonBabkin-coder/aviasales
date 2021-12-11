@@ -5,44 +5,57 @@ import uuid from 'react-uuid';
 import { Spin, Alert } from 'antd';
 import 'antd/dist/antd.css';
 import classes from './Ticket.module.scss';
+// import { ButtonAdd } from '../ButtonAdd/ButtonAdd';
 
 export const TicketCard = React.memo(() => {
-  const { tickets, loading, error, fast, cheap, check1, check2, check3, check4, check5 } = useSelector(
+  const { tickets, loading, error, fast, cheap, check1, check2, check3, check4, check5, add } = useSelector(
     (state) => state
   );
 
-  let filters = [];
+  //  const filters = [...filters, ...filterTicket];
 
   if (!check1 && !check2 && !check3 && !check4 && !check5) {
     return 'Рейсов, подходящих под заданные фильтры, не найдено';
   }
+  // if (check1 && check2 && check3 && check4 && check5) {
+  //   return <ButtonAdd />;
+  // }
 
-  // if (all === true)
+  // if (check1) {
+  //   const allTransfers = tickets.filter((item) => item);
+  //   filters = [...filters, ...allTransfers];
+  // }
 
-  if (check1) {
-    const allTransfers = tickets.filter((item) => item);
-    filters = [...filters, ...allTransfers];
-  }
+  // if (check2) {
+  //   const notTransfers = tickets.filter((item) => item.segments[0].stops.length === 0);
+  //   filters = [...filters, ...notTransfers];
+  // }
 
-  if (check2) {
-    const notTransfers = tickets.filter((item) => item.segments[0].stops.length === 0);
-    filters = [...filters, ...notTransfers];
-  }
+  // if (check3) {
+  //   const oneTransfers = tickets.filter((item) => item.segments[0].stops.length === 1);
+  //   filters = [...filters, ...oneTransfers];
+  // }
 
-  if (check3) {
-    const oneTransfers = tickets.filter((item) => item.segments[0].stops.length === 1);
-    filters = [...filters, ...oneTransfers];
-  }
+  // if (check4) {
+  //   const twoTransfers = tickets.filter((item) => item.segments[0].stops.length === 2);
+  //   filters = [...filters, ...twoTransfers];
+  // }
 
-  if (check4) {
-    const twoTransfers = tickets.filter((item) => item.segments[0].stops.length === 2);
-    filters = [...filters, ...twoTransfers];
-  }
+  // if (check5) {
+  //   const threeTransfers = tickets.filter((item) => item.segments[0].stops.length === 3);
+  //   filters = [...filters, ...threeTransfers];
+  // }
 
-  if (check5) {
-    const threeTransfers = tickets.filter((item) => item.segments[0].stops.length === 3);
-    filters = [...filters, ...threeTransfers];
-  }
+  const filterTicket = tickets.filter(
+    (item) =>
+      (check1 && item) ||
+      (check2 && item.segments[0].stops.length === 0) ||
+      (check3 && item.segments[0].stops.length === 1) ||
+      (check4 && item.segments[0].stops.length === 2) ||
+      (check5 && item.segments[0].stops.length === 3)
+  );
+  const filters = [...filterTicket];
+  console.log(filters);
 
   if (cheap && !fast) {
     tickets.sort((one, last) => one.price - last.price);
@@ -68,7 +81,7 @@ export const TicketCard = React.memo(() => {
     return <ErrorIndicator />;
   }
 
-  return filters.slice(0, 10).map((item) => (
+  return filters.slice(0, add).map((item) => (
     <div key={uuid()} className={classes.block}>
       <div className={classes.header}>
         <div className={classes.price}>{`${String(item.price).slice(0, 2)} ${String(item.price).slice(-3)} Р`}</div>

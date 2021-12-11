@@ -1,42 +1,30 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { buttonCheap, buttonFast } from '../../actions';
-
+import cn from 'classnames';
+import { buttonVariants } from '../../actions';
+import { ButtonAdd } from '../ButtonAdd/ButtonAdd';
 import classes from './Variants.module.scss';
 import { TicketCard } from '../Ticket/Ticket';
 
 export const ChangeVariants = React.memo(() => {
-  const cheap = useSelector((state) => state.cheap);
-  const fast = useSelector((state) => state.fast);
+  const { cheap, fast, error, loading } = useSelector((state) => state);
   const dispatch = useDispatch();
-  let buttonClassCheap = '';
-  let buttonClassFast = '';
-  if (cheap === true) {
-    buttonClassCheap = classes.default;
-  }
-  if (fast === true) {
-    buttonClassFast = classes.default;
-  }
+
+  const classesCheap = cn(classes.cheap, { [classes.default]: cheap && [classes.default] });
+  const classesFast = cn(classes.fast, { [classes.default]: fast && [classes.default] });
 
   return (
     <div className={classes.block__wrapper}>
       <div className={classes.block}>
-        <button
-          className={[classes.cheap, buttonClassCheap].join(' ')}
-          type="button"
-          onClick={() => dispatch(buttonCheap())}
-        >
+        <button className={classesCheap} type="button" onClick={() => dispatch({ type: buttonVariants.BUTTON__CHEAP })}>
           САМЫЙ ДЕШЕВЫЙ
         </button>
-        <button
-          className={[classes.fast, buttonClassFast].join(' ')}
-          type="button"
-          onClick={() => dispatch(buttonFast())}
-        >
+        <button className={classesFast} type="button" onClick={() => dispatch({ type: buttonVariants.BUTTON__FAST })}>
           САМЫЙ БЫСТРЫЙ
         </button>
       </div>
       <TicketCard />
+      {!error && !loading ? <ButtonAdd /> : null}
     </div>
   );
 });

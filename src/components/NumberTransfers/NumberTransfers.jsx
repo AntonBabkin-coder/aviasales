@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { put1, put2, put3, put4, put5, allChecked } from '../../actions';
+// import { put2 } from '../../actions';
+import { check, allChecked } from '../../actions';
 import classes from './NumberTransfers.module.scss';
 
 export const NumberTransfers = React.memo(() => {
@@ -23,7 +24,8 @@ export const NumberTransfers = React.memo(() => {
               type="checkbox"
               name="check"
               value="check1"
-              onChange={(event) => dispatch(put1(event.target.checked))}
+              onChange={(event) => dispatch({ type: check.CHECK1, payload: event.target.checked })}
+              // onChange={(event) => dispatch(put1(event.target.checked))}
               checked={check1}
             />
             <label htmlFor="check1">Все</label>
@@ -34,7 +36,8 @@ export const NumberTransfers = React.memo(() => {
               type="checkbox"
               name="check"
               value="ckeck2"
-              onChange={(event) => dispatch(put2(event.target.checked))}
+              // onChange={(event) => dispatch(put2(event.target.checked))}
+              onChange={(event) => dispatch({ type: check.CHECK2, payload: event.target.checked })}
               checked={check2}
             />
             <label htmlFor="check2">Без пересадок</label>
@@ -45,7 +48,8 @@ export const NumberTransfers = React.memo(() => {
               type="checkbox"
               name="check"
               value="check3"
-              onChange={(event) => dispatch(put3(event.target.checked))}
+              // onChange={(event) => dispatch(put3(event.target.checked))}
+              onChange={(event) => dispatch({ type: check.CHECK3, payload: event.target.checked })}
               checked={check3}
             />
             <label htmlFor="check3">1 пересадка</label>
@@ -56,7 +60,8 @@ export const NumberTransfers = React.memo(() => {
               type="checkbox"
               name="check"
               value="check4"
-              onChange={(event) => dispatch(put4(event.target.checked))}
+              onChange={(event) => dispatch({ type: check.CHECK4, payload: event.target.checked })}
+              // onChange={(event) => dispatch(put4(event.target.checked))}
               checked={check4}
             />
             <label htmlFor="check4">2 пересадки</label>
@@ -67,7 +72,8 @@ export const NumberTransfers = React.memo(() => {
               type="checkbox"
               name="check"
               value="check5"
-              onChange={(event) => dispatch(put5(event.target.checked))}
+              onChange={(event) => dispatch({ type: check.CHECK5, payload: event.target.checked })}
+              // onChange={(event) => dispatch(put5(event.target.checked))}
               checked={check5}
             />
             <label htmlFor="check5">3 пересадки</label>
