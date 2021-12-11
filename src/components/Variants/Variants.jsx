@@ -7,11 +7,18 @@ import classes from './Variants.module.scss';
 import { TicketCard } from '../Ticket/Ticket';
 
 export const ChangeVariants = React.memo(() => {
-  const { cheap, fast, error, loading } = useSelector((state) => state);
+  const { cheap, fast, error, loading, tickets } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const classesCheap = cn(classes.cheap, { [classes.default]: cheap && [classes.default] });
   const classesFast = cn(classes.fast, { [classes.default]: fast && [classes.default] });
+
+  if (cheap === true && fast === false) {
+    tickets.sort((one, last) => one.price - last.price);
+  }
+  if (fast === true && cheap === false) {
+    tickets.sort((one, last) => one.segments[0].duration - last.segments[0].duration);
+  }
 
   return (
     <div className={classes.block__wrapper}>

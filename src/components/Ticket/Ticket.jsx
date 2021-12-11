@@ -8,9 +8,7 @@ import classes from './Ticket.module.scss';
 // import { ButtonAdd } from '../ButtonAdd/ButtonAdd';
 
 export const TicketCard = React.memo(() => {
-  const { tickets, loading, error, fast, cheap, check1, check2, check3, check4, check5, add } = useSelector(
-    (state) => state
-  );
+  const { tickets, loading, error, check1, check2, check3, check4, check5, add } = useSelector((state) => state);
 
   //  const filters = [...filters, ...filterTicket];
 
@@ -57,13 +55,13 @@ export const TicketCard = React.memo(() => {
   const filters = [...filterTicket];
   console.log(filters);
 
-  if (cheap === true && fast === false) {
-    tickets.sort((one, last) => one.price - last.price);
-  }
+  // if (cheap === true && fast === false) {
+  //   tickets.sort((one, last) => one.price - last.price);
+  // }
 
-  if (fast === true && cheap === false) {
-    tickets.sort((one, last) => one.segments[0].duration - last.segments[0].duration);
-  }
+  // if (fast === true && cheap === false) {
+  //   tickets.sort((one, last) => one.segments[0].duration - last.segments[0].duration);
+  // }
 
   const Spiner = () => (
     <div className={classes.example}>
