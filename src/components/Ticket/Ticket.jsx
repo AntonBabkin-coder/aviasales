@@ -57,11 +57,11 @@ export const TicketCard = React.memo(() => {
   const filters = [...filterTicket];
   console.log(filters);
 
-  if (cheap && !fast) {
+  if (cheap === true && fast === false) {
     tickets.sort((one, last) => one.price - last.price);
   }
 
-  if (fast && !cheap) {
+  if (fast === true && cheap === false) {
     tickets.sort((one, last) => one.segments[0].duration - last.segments[0].duration);
   }
 
