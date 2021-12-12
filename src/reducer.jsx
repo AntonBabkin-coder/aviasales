@@ -11,6 +11,7 @@ const initialState = {
   error: false,
   stop: '',
   add: 5,
+  all: true,
 };
 
 const reducer = (state = initialState, action) => {
@@ -39,6 +40,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         check1: true,
+        all: true,
       };
     case 'CHECK1':
       return {
@@ -48,6 +50,7 @@ const reducer = (state = initialState, action) => {
         check3: action.payload,
         check4: action.payload,
         check5: action.payload,
+        all: action.payload,
       };
 
     case 'CHECK2':
@@ -55,6 +58,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         check2: action.payload,
         check1: false,
+        all: false,
       };
 
     case 'CHECK3':
@@ -62,53 +66,22 @@ const reducer = (state = initialState, action) => {
         ...state,
         check3: action.payload,
         check1: false,
+        all: false,
       };
     case 'CHECK4':
       return {
         ...state,
         check4: action.payload,
         check1: false,
+        all: false,
       };
     case 'CHECK5':
       return {
         ...state,
         check5: action.payload,
         check1: false,
+        all: false,
       };
-    // case 'CHECK1':
-    //   return {
-    //     ...state,
-    //     check1: action.payload,
-    //     check2: action.payload,
-    //     check3: action.payload,
-    //     check4: action.payload,
-    //     check5: action.payload,
-    //   };
-
-    // case 'CHECK2':
-    //   return {
-    //     ...state,
-    //     check2: action.payload,
-    //     check1: false,
-    //   };
-    // case 'CHECK3':
-    //   return {
-    //     ...state,
-    //     check3: action.payload,
-    //     check1: false,
-    //   };
-    // case 'CHECK4':
-    //   return {
-    //     ...state,
-    //     check4: action.payload,
-    //     check1: false,
-    //   };
-    // case 'CHECK5':
-    //   return {
-    //     ...state,
-    //     check5: action.payload,
-    //     check1: false,
-    //   };
     case 'SAVE_TICKETS':
       return {
         ...state,

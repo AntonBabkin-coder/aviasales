@@ -1,4 +1,3 @@
-export const allChecked = () => ({ type: 'CHECKED' });
 export const buttonVariants = {
   BUTTON__CHEAP: 'BUTTON__CHEAP',
   BUTTON__FAST: 'BUTTON__FAST',
@@ -17,6 +16,7 @@ export const loadingIndicator = () => ({ type: 'LOADING' });
 export const ticketStop = () => ({ type: 'STOP' });
 export const error = () => ({ type: 'ERROR' });
 export const addTicket = () => ({ type: 'ADD_TICKET' });
+export const allChecked = () => ({ type: 'CHECKED' });
 
 export const getTickets = (request) => (dispatch) => {
   fetch(`${process.env.REACT_APP_API}/tickets?searchId=${request}`)
