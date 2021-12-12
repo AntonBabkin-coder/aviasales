@@ -1,1 +1,1 @@
-https://github.com/AntonBabkin-coder/aviasales
+https://aviasales-khaki-one.vercel.app/
